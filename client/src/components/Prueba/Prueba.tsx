@@ -1,7 +1,7 @@
 export default function Prueba () {
     return (
         <div>
-            <h3>oli</h3>
+            <h3>Holi</h3>
         </div>
     )
 }
