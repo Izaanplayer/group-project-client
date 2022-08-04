@@ -8,7 +8,7 @@ export default function Example() {
   return (
     <>
       <Navbar />
-      <div className="flex h-screen flex-col bg-primary-200">
+      <div className="flex h-screen flex-col">
 
         <div className="flex flex-row h-full items-center w-full z-40">
           <div className="w-1/2 flex flex-row items-center justify-center">
