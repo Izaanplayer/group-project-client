@@ -6,9 +6,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        'primary': { DEFAULT: '#702CC3', '50': '#D1B8EF', '100': '#C6A7EB', '200': '#B086E4', '300': '#9A64DC', '400': '#8543D5', '500': '#702CC3', '600': '#562295', '700': '#3B1767', '800': '#210D3A', '900': '#07030C' },
-      },
       keyframes: {
         floating: {
           '0%': { transform: 'translate(0,  0px)' },
