@@ -1,11 +1,16 @@
 import Example from '../components/Testing/Example';
+import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
+import { ArtistDetail } from '../components/ArtistDetail/ArtistDetail';
 
 function App() {
 
   return (
     <div>
-      <Example />
+      <Routes>
+        <Route path="/artistDetail" element={<ArtistDetail />} />
+        <Route path='/' element={<Example />} />
+      </Routes>
     </div>
   );
 }

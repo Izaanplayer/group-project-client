@@ -1,9 +1,7 @@
 import React from 'react'
 
-function ArtistDetail() {
-    return (
-        <div>ArtistDetail</div>
-    )
+export const ArtistDetail = () => {
+  return (
+    <div>ArtistDetail</div>
+  )
 }
-
-export default ArtistDetail
