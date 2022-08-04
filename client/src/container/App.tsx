@@ -1,7 +1,6 @@
 import Example from '../components/Testing/Example';
 import { Routes, Route, Link } from "react-router-dom";
 import Home from '../components/Home';
-// import SearchBar from '../components/SearchBar/SearchBar';
 import './App.css';
 import { ArtistDetail } from '../components/ArtistDetail/ArtistDetail';
 
