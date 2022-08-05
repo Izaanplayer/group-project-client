@@ -6,12 +6,12 @@ export default function Navbar() {
         <>
             <div className="w-full py-1 px-5 bg-white flex items-center fixed top-0 right-0 left-0 z-50 shadow lg:flex-row lg:flex-nowrap lg:justify-start">
                 <div className="container py-3 mx-auto flex items-center justify-between lg:flex-nowrap xl:max-w-screen-xl">
-                    <a href='#' className="text-2xl text-gray-900 font-extrabold inline-block py-1.5 mr-4 leading-none whitespace-nowrap tracking-widest">Artist App</a>
+                    <Link to="/">
+                        <p className="text-2xl text-gray-900 font-extrabold inline-block py-1.5 mr-4 leading-none whitespace-nowrap tracking-widest">Artist App</p>
+                    </Link>
                     <div className="flex basis-auto flex-grow items-center">
-                        
-                        
                         <ul className="flex flex-row items-center ml-auto pl-0 list-none my-0">
-                        <SearchBar/>
+                            <SearchBar />
                             <li className="mr-8">
                                 <a href='#' className="flex items-center text-gray-900 text-lg font-semibold py-1.5 px-4 rounded-3xl transition-all duration-75 ease-linear delay-75 hover:bg-gray-400 hover:bg-opacity-20">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -47,7 +47,7 @@ export default function Navbar() {
                         </ul>
                     </div>
                 </div>
-            
+
             </div>
         </>
     )
