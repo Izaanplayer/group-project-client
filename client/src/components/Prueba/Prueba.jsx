@@ -21,7 +21,7 @@ export default function Prueba() {
                     <div  className="max-w-sm rounded overflow-hidden shadow-lg container">
 
                         <h2>{ele.nickName}</h2>
-                        <p>{ele.name}</p>
+                        <h2>{ele.name}</h2>
                         <p>{ele.lastName}</p>
                         <p>{ele.city}</p>
                         <p>{ele.country}</p>
