@@ -1,5 +1,5 @@
 const initialState = {
-
+    artistDetail: []
 };
 
 function rootReducer(state = initialState, action) {
