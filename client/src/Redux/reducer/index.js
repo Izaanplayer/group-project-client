@@ -1,0 +1,14 @@
+const initialState = {
+
+};
+
+function rootReducer(state = initialState, action) {
+    switch (action.type) {
+        case '':
+
+            break;
+
+        default:
+            return state;
+    }
+}
