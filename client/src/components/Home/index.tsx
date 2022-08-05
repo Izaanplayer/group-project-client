@@ -1,8 +1,16 @@
+import React,{ useEffect} from 'react';
 import auriculares from '../../media/auriculares.png';
 import wave8 from '../../media/wave8.svg';
 import Navbar from '../Navbar';
+import { useDispatch } from 'react-redux';
+import { allArtists } from '../../Redux/actions/artistActions'
 
 export default function Home() {
+
+    
+    
+
+
     return (
         <>
             <Navbar />

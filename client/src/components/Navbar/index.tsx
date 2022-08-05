@@ -44,6 +44,19 @@ export default function Navbar() {
                                     Ingresar
                                 </a>
                             </li>
+
+                            {/* Pruebas!!! */}
+
+                            <Link to= '/Pruebas'>
+                            <li className="mr-8">
+                                <a href='#' className="flex items-center text-gray-900 text-lg font-extrabold py-1.5 px-4 rounded-3xl transition-all duration-75 ease-linear delay-75 bg-gray-200 border-gray-700 hover:bg-opacity-70">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                    Pruebas
+                                </a>
+                            </li>
+                            </Link>
                         </ul>
                     </div>
                 </div>
