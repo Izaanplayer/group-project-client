@@ -1,21 +1,10 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
 import ArtistDefault from '../../media/ArtistDefault.png'
-
 import Navbar from '../Navbar'
 
 export default function ArtistDetail() {
-    // esperar a Toolkit para organizar redux
-    // const { id } = useParams();
-    // const dispatch = useDispatch();
-    // const artistDetail = useSelector(state => state.artistDetail)
-    // useEffect(() => {
-    //     dispatch(fetch('http://localhost:4000/artist/378429c6-047a-4b30-8af8-d4a2fec1e5b2'))
-    // })
     return (
         <div className="flex place-content-center text-center my-5 h-auto">
-            {/* <Navbar/> */}
+            <Navbar/>
             <ul className="bg-mikeBlack max-h-fit  w-3/4 mt-5 rounded-t-3xl rounded-b-2xl text-mikeWhite">
                 <div className=" rounded-t-sm shadow-md shadow-mikeWhite">
                     <h2 className="text-2xl font-bold capitalize mt-4 pt-5 px-4 ">
