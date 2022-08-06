@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import ArtistDefault from '../../media/ArtistDefault.png'
 
-import Navbar from '../Navbar'
+// import Navbar from '../Navbar'
 
 export default function ArtistDetail() {
     // esperar a Toolkit para organizar redux
@@ -13,6 +13,17 @@ export default function ArtistDetail() {
     // useEffect(() => {
     //     dispatch(fetch('http://localhost:4000/artist/378429c6-047a-4b30-8af8-d4a2fec1e5b2'))
     // })
+
+    // interface Artist {
+    //     id: 'string';
+    //     nickName: 'string';
+    //     eventName: 'string';
+    //     description: 'string';
+    //     duration: 'number'
+    //     priceTime: 'number'
+    //     city: 'string'
+    //     country: 'string'
+    // }
     return (
         <div className="flex place-content-center text-center my-5 h-auto">
             {/* <Navbar/> */}
