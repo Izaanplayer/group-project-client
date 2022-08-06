@@ -1,22 +1,11 @@
-import { Routes, Route } from "react-router-dom";
-
 import Home from '../components/Home';
-import Example from '../components/Testing/Example';
-import ArtistDetail from '../components/ArtistDetail/ArtistDetail';
-
+import { Counter } from '../components/Counter/Counter';
 import './App.css';
 
-function App() {
-
+export default function App() {
   return (
-    <div>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path="/artistDetail" element={<ArtistDetail />} />
-        <Route path='/testing' element={<Example />} />
-      </Routes>
+    <div className="App">
+      <Home />
     </div>
   );
 }
-
-export default App;
