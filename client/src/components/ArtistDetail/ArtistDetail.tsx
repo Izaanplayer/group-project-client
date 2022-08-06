@@ -1,6 +1,6 @@
 import ArtistDefault from '../../media/ArtistDefault.png'
 
-// import Navbar from '../Navbar'
+import Navbar from '../Navbar'
 
 export default function ArtistDetail() {
     return (
