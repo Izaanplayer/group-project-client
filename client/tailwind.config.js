@@ -19,5 +19,17 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  corePlugins: {
+    container: false //Deshabilito el container que traía el tailwindcss por default y lo sobrescribo por el de abajo en [addComponents]
+  },
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+          padding: '0px 20px 0px 20px',
+          marginTop: '5rem'
+        }
+      });
+    }
+  ],
 }
