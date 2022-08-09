@@ -5,7 +5,7 @@ import {
   decrement,
   increment,
   incrementByAmount,
-  selectCount
+  /* selectCount */
 } from '../../redux/reducer/counterSlice';
 
 import { incrementAsync, otherIncrementAsync } from '../../redux/thunks/counter';
@@ -14,7 +14,7 @@ import { incrementIfOdd } from '../../redux/actions/Counter';
 import styles from './Counter.module.css';
 
 export function Counter() {
-  const count = useAppSelector(selectCount);
+  //const count = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
 
@@ -30,7 +30,7 @@ export function Counter() {
         >
           -
         </button>
-        <span className={styles.value}>{count}</span>
+        <span className={styles.value}>zss</span>
         <button
           className={styles.button}
           aria-label="Increment value"
