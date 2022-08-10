@@ -6,9 +6,7 @@ export default function Login(){
     return (
         <section className="h-screen">
             <Navbar/>
-            <br/>
-            <br/>
-            <div className="px-6 h-full text-gray-800">
+            <div className="container px-6 h-full text-gray-800">
                 <div
                     className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
                     <div
