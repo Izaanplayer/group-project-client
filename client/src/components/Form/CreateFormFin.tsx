@@ -52,12 +52,9 @@ export default function CreateFormRe() {
                 </div>
                 <Link to='/login'>
                     <div className="text-center">
-                        <a
-                            className="inline-block text-sm text-red-500 font-semibold align-baseline hover:text-blue-800"
-                            href="./index.html"
-                        >
+                        <p className="inline-block text-sm text-red-500 font-semibold align-baseline hover:text-blue-800">
                             ¿Ya tienes una cuenta? Ingresa!
-                        </a>
+                        </p>
                     </div>
                 </Link>
 

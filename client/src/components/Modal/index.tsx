@@ -13,7 +13,6 @@ export default function Modal({ buttonClass, textButton, titleHeader, bodyModal 
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
     const toggleModal = () => {
-        console.log('render modal');
         setIsModalVisible(wasModalVisible => !wasModalVisible);
     }
 
