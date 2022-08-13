@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-// import ArtistDetail from "../components/ArtistDetail/ArtistDetail";
-import Explore from "../components/Explorar";
 import Home from "../components/Home";
-import Example from "../components/Testing/Example";
 import AllArtists from "../components/Artists/allArtists";
+import ArtistDetail from "../components/ArtistDetail/ArtistDetail";
+import Categories from "../components/Categories";
 import Login from "../components/Login/Login";
-import CreateFormRe from "../components/Form/CreateFormFin";
 import AdminPanel from "../components/AdminPanel/AdminPanel";
+import Register from "../components/Form/CreateFormFin";
+import Contract from "../components/Contract";
 
 export default function App() {
   return (
@@ -14,11 +14,12 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/artists' element={<AllArtists />} />
-        <Route path='/explore' element={<Explore />} />
-        <Route path = '/form' element = {<CreateFormRe/>}/>
+        <Route path='/artists/detail/:id' element={<ArtistDetail />} />
+        <Route path='/categories' element={<Categories />} />
+        <Route path='/contract' element={<Contract />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/AdminPanel' element={<AdminPanel />} />
-        <Route path = '/login' element = {<Login/>}/>
-        <Route path='/testing' element={<Example />} />
       </Routes>
     </>
   )

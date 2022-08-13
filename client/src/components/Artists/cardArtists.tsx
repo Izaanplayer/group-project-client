@@ -11,7 +11,7 @@ export const CardArtists: React.FC<ArtistsProps> = ({ artists }) => {
             {artists && artists.map((ele, i) => {
                 return (
                     <div key={i} className="w-1/3 capitalize text-center text-mikeWhite bg-mikeBlack rounded-2xl mx-7 mt-7">
-                        <Link to={`/artistDetail/${ele.id}`}>
+                        <Link to={`/artists/detail/${ele.id}`}>
                             <img className=' rounded-2xl' src={ele.imagesEvent[0]} alt="" />
                             <div className="max-w-sm rounded overflow-hidden shadow-lg container">
                                 <h2>{ele.nickName}</h2>

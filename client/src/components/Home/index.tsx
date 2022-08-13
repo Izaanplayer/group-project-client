@@ -8,7 +8,7 @@ export default function Home() {
         <>
             <Navbar />
             <div className="flex h-screen flex-col">
-                <div className="flex flex-row h-full items-center w-full z-40">
+                <div className="flex flex-row h-full items-center w-full">
                     <div className="w-1/2 flex flex-row items-center justify-center">
                         <img src={auriculares} className="w-2/3 animate-[floating_3s_ease-in-out_infinite]" alt="" />
                     </div>
@@ -21,7 +21,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="absolute w-full h-full flex items-end">
+                <div className="absolute w-full h-full flex items-end -z-50">
                     <img src={wave8} className="w-full" alt="" />
                 </div>
             </div>
