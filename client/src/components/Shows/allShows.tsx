@@ -3,39 +3,38 @@ import { useSearchParams } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks"
 import { RootState } from "../../redux/store/store";
-import { getAllArtists } from "../../redux/actions/Artists";
-import { ArtistArgs } from "../../redux/reducer/artistSlice";
+import { getShowByName } from "../../redux/actions/Shows";
+import { getAllShows } from "../../redux/thunks/show";
+import { ShowArgs } from "../../redux/reducer/showSlice";
 
-import { CardArtists } from "./cardArtists";
+import { CardShows } from "./cardShows";
 import Navbar from "../Navbar";
 
 export default function AllArtists() {
     const dispatch = useAppDispatch();
-    const artistState = useAppSelector((state: RootState) => state.artists);
-    const [artists, setArtists] = useState<ArtistArgs[]>([]);
+    const showState = useAppSelector((state: RootState) => state.shows);
+    const [shows, setShows] = useState<ShowArgs[]>([]);
     const [searchParams] = useSearchParams();
 
     useEffect(() => {
         if (searchParams.get("name") !== null) {
             //Get Artists By Name
-            console.log('getArtistByName');
+            dispatch(getShowByName(searchParams.get("name")?.toLowerCase()!));
         } else {
-            dispatch(getAllArtists());
+            dispatch(getAllShows());
         }
     }, [dispatch, searchParams]);
 
     useEffect(() => {
-        if (artistState.data.length > 0) {
-            setArtists(artistState.data);
-        }
-    }, [artistState]);
+        setShows(showState.data);
+    }, [showState]);
 
 
     return (
         <>
             <Navbar />
             <div className="container">
-                <CardArtists artists={artists} />
+                <CardShows shows={shows} />
             </div>
         </>
     )

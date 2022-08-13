@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 
 import Home from "../components/Home";
-import AllArtists from "../components/Artists/allArtists";
-import ArtistDetail from "../components/ArtistDetail/ArtistDetail";
+import AllShows from "../components/Shows/allShows";
+import ShowDetail from "../components/ShowDetail/ShowDetail";
 import Categories from "../components/Categories";
 import Login from "../components/Login/Login";
 import Register from "../components/Form/CreateFormFin";
@@ -13,9 +13,9 @@ export default function App() {
     <>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/artists' element={<AllArtists />} >
+        <Route path='/shows' element={<AllShows />} >
         </Route>
-        <Route path='/artists/detail/:id' element={<ArtistDetail />} />
+        <Route path='/shows/detail/:id' element={<ShowDetail />} />
         <Route path='/categories' element={<Categories />} />
         <Route path='/contract' element={<Contract />} />
         <Route path='/login' element={<Login />} />
