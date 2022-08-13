@@ -35,4 +35,9 @@ module.exports = {
     },
     require('flowbite/plugin')
   ],
+  variants: {
+    extend: {
+      display: ['group-focus']
+    }
+  }
 }
