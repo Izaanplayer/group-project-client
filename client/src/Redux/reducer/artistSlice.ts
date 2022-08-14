@@ -22,14 +22,21 @@ export type ArtistArgs = {
     priceDay: number;
 }
 
+export type validateRol =   {
+    isAdmin : boolean
+}
+
 export interface ArtistState {
     data: ArtistArgs[],
-    detail: ArtistArgs[]
+    detail: ArtistArgs[],
+    isAdmin: boolean
+    
 }
 
 const initialState: ArtistState = {
     data: [],
-    detail: []
+    detail: [], //{}
+    isAdmin: false
 };
 
 /* LAS ASYNC ACTIONS ESTÁN EN LA CARPETA DE THUNKS */
@@ -45,7 +52,7 @@ const isActionsRejected = isSomeAsyncActionsRejected([
 
 ]);
 
-export const counterSlice = createSlice({
+export const artistSlice = createSlice({
     name: 'artists',
     initialState,
     // The `reducers` field lets us define reducers and generate associated actions
@@ -56,6 +63,9 @@ export const counterSlice = createSlice({
         getDetail: (state, action: PayloadAction<ArtistArgs[]>) => {
             state.detail = action.payload;
         },
+        IsAdmin: (state, action)  => {
+            state.isAdmin = action.payload
+        }
         /* decrement: (state) => {
             state.value -= 1;
         },
@@ -81,11 +91,11 @@ export const counterSlice = createSlice({
     },
 });
 
-export const { getAll, getDetail } = counterSlice.actions;
+export const { getAll, getDetail, IsAdmin } = artistSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectArtist = (state: RootState) => state.artists;
 
-export default counterSlice.reducer;
+export default artistSlice.reducer;

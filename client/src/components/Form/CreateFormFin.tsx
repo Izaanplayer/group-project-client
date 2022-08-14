@@ -1,7 +1,34 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
+import { useState } from 'react';
+
+
+
 
 export default function CreateFormRe() {
+
+    interface form {
+        firstName: string,
+        lastName:string,
+        city:string,
+        country:string,
+        email: string,
+        password: string,
+        rol:string
+    }
+
+    const [input, setInput] = useState({
+        firstName:'',
+        lastName:'',
+        city:'',
+        country:'',
+        email: '',
+        password: '',
+        rol:''
+    })
+
+
+
     return (
         <div className="max-w-2xl mx-auto bg-white p-16">
             <Navbar />
@@ -9,7 +36,7 @@ export default function CreateFormRe() {
                 <div className="grid gap-6 mb-6 lg:grid-cols-2">
                     <div>
                         <label htmlFor="firstName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nombre</label>
-                        <input type="text" id="firstName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Angie" required />
+                        <input type="text" id="firstName" value={input.firstName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Angie" required />
                     </div>
                     <div>
                         <label htmlFor="lastName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Apellido</label>

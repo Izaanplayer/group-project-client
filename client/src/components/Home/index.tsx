@@ -2,6 +2,7 @@ import auriculares from '../../media/auriculares.png';
 import wave8 from '../../media/wave8.svg';
 import Navbar from '../Navbar';
 import { Link } from 'react-router-dom';
+import AA from '../AA/AA';
 
 export default function Home() {
     return (
@@ -24,6 +25,7 @@ export default function Home() {
                 <div className="absolute w-full h-full flex items-end -z-50">
                     <img src={wave8} className="w-full" alt="" />
                 </div>
+                <AA/>
             </div>
         </>
     )
