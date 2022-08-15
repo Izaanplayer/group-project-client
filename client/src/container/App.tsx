@@ -7,8 +7,19 @@ import Login from "../components/Login/Login";
 import AdminPanel from "../components/AdminPanel/AdminPanel";
 import Register from "../components/Form/CreateFormFin";
 import Contract from "../components/Contract";
+// import axios from "axios";
+
 
 export default function App() {
+
+// axios.interceptors.response.use(function (response) {
+//   // Any status code that lie within the range of 2xx cause this function to trigger
+//   // Do something with response data
+//   // return response;
+//   console.log(response) ;
+//   return response
+// }) 
+
   return (
     <>
       <Routes>
