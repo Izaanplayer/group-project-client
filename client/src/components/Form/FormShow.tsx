@@ -27,7 +27,7 @@ export default function FormShow() {
   return (
     <div> 
       <Navbar />
-      <h1>Formulario regIstro</h1>
+      <h1>Formulario registro</h1>
       
       <div className="max-w-2xl mx-auto bg-white p-16">
             
