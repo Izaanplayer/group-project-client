@@ -22,7 +22,7 @@ export default function ShowDetail() {
 
     useEffect(() => {
         dispatch(getShowDetail(String(id)));
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     return (
         <div className="flex justify-center text-center my-20 h-auto">

@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import React, { ChangeEvent } from 'react'
 import { useState } from 'react'
 

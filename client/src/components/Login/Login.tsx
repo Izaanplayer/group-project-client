@@ -1,7 +1,69 @@
+//@ts-nocheck
 import Navbar from "../Navbar"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, ChangeEvent } from 'react';
+import Swal from "sweetalert2";
+import axios from "axios";
+import { getRole } from "../../redux/reducer/usersSlice";
+import { useAppDispatch } from '../../redux/hooks/hooks';
+// import { getLogin } from '../../redux/actions/users';
+
 
 export default function Login() {
+    const dipatch = useAppDispatch()
+    const navigate = useNavigate()
+
+    interface IUser {
+        email : string
+        password: string
+    } 
+
+    const [input, setInput] = useState<IUser>({
+        email:'',
+        password:''
+    })
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>)=>{
+        setInput({
+            ...input,
+            [e.target.name] : e.target.value
+        })
+    }
+    // console.log(input);
+    const handleSubmit = async(e) =>{
+        e.preventDefault()
+        try {
+        
+            const response = await axios({
+                url: 'http://localhost:4000/signin',
+                method: 'POST',
+                data:input
+                
+            })
+            dipatch(getRole(response.data))
+            localStorage.setItem('auth-token',response.data.token );
+            localStorage.setItem('role', response.data.rol)
+            Swal.fire({ 
+                position: 'center',
+                icon: 'success',
+                title: `El Videojuego ${input.email} logeado correctamente`,
+                showConfirmButton: false,
+                timer: 1500
+            })
+            setInput({
+                email:'',
+                password:''
+            })
+            if(response.data.rol==='ARTIST'){
+                navigate('/shows')
+            }
+        } catch (error) {
+            Swal.fire(error.response.data.error)
+            // console.log(error);
+        }
+    }
+
+
     return (
         <section className="h-screen">
             <Navbar />
@@ -17,7 +79,7 @@ export default function Login() {
                         />
                     </div>
                     <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                        <form>
+                        <form onSubmit={(e) => handleSubmit(e)}>
                             <div className="flex flex-row items-center justify-center lg:justify-start">
                                 <p className="text-lg mb-0 mr-4">Entrar con</p>
                                 <button
@@ -81,6 +143,9 @@ export default function Login() {
                                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     id="exampleFormControlInput2"
                                     placeholder="Correo electronico"
+                                    value={input.email}
+                                    name='email'
+                                    onChange={(e)=> handleChange(e)}
                                 />
                             </div>
 
@@ -91,6 +156,9 @@ export default function Login() {
                                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     id="exampleFormControlInput2"
                                     placeholder="Contraseña"
+                                    value={input.password}
+                                    name='password'
+                                    onChange={handleChange}
                                 />
                             </div>
 
@@ -108,7 +176,8 @@ export default function Login() {
 
                             <div className="text-center lg:text-left">
                                 <button
-                                    type="button"
+                                    type="submit"
+
                                     className="inline-block px-7 py-3 bg-red-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                 >
                                     Ingresar
