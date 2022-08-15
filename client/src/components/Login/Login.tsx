@@ -46,7 +46,7 @@ export default function Login() {
             Swal.fire({ 
                 position: 'center',
                 icon: 'success',
-                title: `El Videojuego ${input.email} logeado correctamente`,
+                title: `${input.email} logeado correctamente`,
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -55,6 +55,10 @@ export default function Login() {
                 password:''
             })
             if(response.data.rol==='ARTIST'){
+                navigate('/createartist')
+            }else if(response.data.rol === 'ADMIN'){
+                navigate('/AdminPanel')
+            }else if (response.data.rol === 'CONTRACTOR'){
                 navigate('/shows')
             }
         } catch (error) {

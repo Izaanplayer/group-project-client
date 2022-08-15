@@ -8,6 +8,7 @@ import AdminPanel from "../components/AdminPanel/AdminPanel";
 import Register from "../components/Form/CreateFormFin";
 import Contract from "../components/Contract";
 // import axios from "axios";
+import FormShow from '../components/Form/FormShow';
 
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
         <Route path='/contract' element={<Contract />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/createartist' element={<FormShow />} />
         <Route path='/AdminPanel' element={<AdminPanel />} />
       </Routes>
     </>

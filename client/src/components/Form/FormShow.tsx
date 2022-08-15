@@ -1,127 +1,91 @@
 //@ts-nocheck
-import { Link, useNavigate } from 'react-router-dom';
-import Navbar from "../Navbar";
+import React from 'react'
+import Navbar from "../Navbar"
 import { useState } from 'react';
-import { useAppDispatch } from '../../redux/hooks/hooks';
-import axios from 'axios';
-import {getRole} from '../../redux/reducer/usersSlice'
-import Swal from 'sweetalert2';
 
-export default function CreateFormRe() {
-    const dispatch = useAppDispatch();
-    const navigate = useNavigate();
-    const [input, setInput] = useState({
-        userName:'',
-        lastName:'',
-        city:'',
-        country:'',
-        email: '',
-        password: '',
-        rol:''
-    })
-    console.log(input);
+export default function FormShow() {
+  const [input, setInput] = useState({
+    nickName: '',
+    eventName:  '',
+    description: '',
+    imagesEvent: [],
+    duration: 0,
+    isActive: true,
+    priceTime: 0,
+    priceDay:0,
+    categories: ''
+  })
 
-    const handleChange = (e)=>{
-        setInput({
-            ...input,
-            [e.target.name]: e.target.value
-        })
-    }
+  const handleChange = ()=>{
+
+  
+  }
+  const handleSubmit = ()=>{
     
+  }
 
-
-
-    const handleSubmit = async(e) =>{
-        e.preventDefault()
-        try {
-        
-            const response = await axios({
-                url: 'http://localhost:4000/signup',
-                method: 'POST',
-                data:input
-                
-            })
-            console.log(response);
-            dispatch(getRole(response.data))
-            localStorage.setItem('auth-token',response.data.token );
-            localStorage.setItem('role', response.data.rol)
-            Swal.fire({ 
-                position: 'center',
-                icon: 'success',
-                title: `El Videojuego ${input.email} logeado correctamente`,
-                showConfirmButton: false,
-                timer: 1500
-            })
-            setInput({
-                
-            })
-            if(response.data.rol==='ARTIST'){
-                navigate('/createartist')
-            }
-        } catch (error) {
-            // Swal.fire(error.response.data.error)
-            console.log(error);
-        }
-    }
-
-    return (
-        <div className="max-w-2xl mx-auto bg-white p-16">
-            <Navbar />
+  return (
+    <div> 
+      <Navbar />
+      <h1>Formulario regIstro</h1>
+      
+      <div className="max-w-2xl mx-auto bg-white p-16">
+            
             <form className="container" onSubmit={(e)=> handleSubmit(e)} >
             <div className="grid gap-6 mb-6 lg:grid-cols-2">
                     <div>
                         <label 
-                            htmlFor="userName" 
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nombre</label>
+                            htmlFor="nickName" 
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">nombre artistico</label>
                         <input 
                         type="text" 
-                        id="userName" 
+                        id="nickName" 
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                         placeholder="Angie" 
-                        name="userName"
-                        value={input.userName}
+                        name="nickName"
+                        value={input.nickName}
                         onChange={handleChange}                       
                         required />
                     </div>
                     <div>
                         <label 
-                        htmlFor="lastName" 
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Apellido</label>
+                        htmlFor="eventName" 
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">nombre del show</label>
                         <input 
                         type="text" 
-                        id="lastName" 
+                        id="eventName" 
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                         placeholder="Perdomo" 
-                        name="lastName"
-                                value={input.lastName}
+                        name="eventName"
+                                value={input.eventName}
                                 onChange={handleChange}
                         required />
                     </div>
                     <div>
                         <label 
-                        htmlFor="city" 
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ciudad</label>
+                        htmlFor="imagesEvent" 
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">imagenes show</label>
                         <input 
                         type="text" 
-                        id="city" 
+                        id="imagesEvent" 
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Bogota"
-                        name="city"
-                        value={input.city}
+                        placeholder="imagenes show"
+                        name="imagesEvent"
+                        value={input.imagesEvent}
                         onChange={handleChange} 
                         required />
                     </div>
                     <div>
                         <label 
-                        htmlFor="country" 
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pais</label>
+                        htmlFor="duration" 
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">tiempo presentacIon</label>
                         <input 
                         type="text" 
-                        id="country" 
+                        id="duration" 
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                         placeholder="Colombia"
-                                name="country"
-                                value={input.country}
+                                name="duration"
+                                value={input.duration}
                         onChange={handleChange} 
                         required />
                     </div>
@@ -129,53 +93,41 @@ export default function CreateFormRe() {
                 <div className="mb-6">
                     <label 
                     htmlFor="email" 
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">precIo por presentacion</label>
                     <input 
                     type="email" 
                     id="email" 
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                     placeholder="angie.perdomo@company.com" 
                     name="email"
-                    value={input.email}
+                    value={input.priceTime}
                     onChange={handleChange}
                     required />
                 </div>
                 <div className="mb-6">
                     <label 
-                    htmlFor="password" 
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Contraseña</label>
+                    htmlFor="priceDay" 
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">precIo por dia</label>
                     <input 
-                    type="password" 
-                    id="password" 
+                    type="number" 
+                    id="priceDay" 
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="•••••••••"
-                    name="password"
-                    value={input.password}
+                    placeholder="precio por dia"
+                    name="priceDay"
+                    value={input.priceDay}
                     onChange={handleChange} 
                     required />
                 </div>
-                <div className="mb-6">
-                    <label 
-                    htmlFor="confirmPassword" 
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Confirmar contraseña</label>
-                    <input 
-                    type="password" 
-                    id="confirmPassword" 
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="•••••••••" 
-                    name="password"
-                    value={input.password}
-                    onChange={handleChange}
-                    required />
-                </div>
-
+                <label 
+                    htmlFor="priceDay" 
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">categoria del show</label>
                  <select 
-                id="roles"      
-                name="rol"  
+                id="categories"      
+                name="categories"  
                 onChange={handleChange}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option value="ARTIST">Artista</option>
-            <option value="CONTRACTOR">Usuario Contratista</option>
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">seleccione categorIas
+            <option value="ARTIST">canto</option>
+            <option value="CONTRACTOR">baile</option>
             </select>
                 <div className="flex items-start mb-6">
                     <div className="flex items-center h-5">
@@ -193,21 +145,26 @@ export default function CreateFormRe() {
                         className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                         type="submit"
                     >
-                        Registrar cuenta
+                        Registrar show
                     </button>
                 </div>
-                <Link to='/login'>
+                {/* <Link to='/login'>
                     <div className="text-center">
                         <p className="inline-block text-sm text-red-500 font-semibold align-baseline hover:text-blue-800">
                             ¿Ya tienes una cuenta? Ingresa!
                         </p>
                     </div>
-                </Link>
+                </Link> */}
             </form>
         </div>
-    )
+
+
+
+
+
+
+
+      
+      </div>
+  )
 }
-
-
-
-
