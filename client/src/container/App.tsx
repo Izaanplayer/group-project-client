@@ -6,20 +6,14 @@ import Categories from "../components/Categories";
 import Login from "../components/Login/Login";
 import AdminPanel from "../components/AdminPanel/AdminPanel";
 import Register from "../components/Form/CreateFormFin";
-import Contract from "../components/Contract";
-// import axios from "axios";
+// import Contract from "../components/Contract";
+import Pagos from "../components/pruebaPago/Pagos";
 import FormShow from '../components/Form/FormShow';
 
 
 export default function App() {
 
-// axios.interceptors.response.use(function (response) {
-//   // Any status code that lie within the range of 2xx cause this function to trigger
-//   // Do something with response data
-//   // return response;
-//   console.log(response) ;
-//   return response
-// }) 
+
 
   return (
     <>
@@ -28,11 +22,13 @@ export default function App() {
         <Route path='/shows' element={<AllShows />} />
         <Route path='/shows/detail/:id' element={<ShowDetail />} />
         <Route path='/categories' element={<Categories />} />
-        <Route path='/contract' element={<Contract />} />
+        {/* <Route path='/contract' element={<Contract />} /> */}
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/createartist' element={<FormShow />} />
         <Route path='/AdminPanel' element={<AdminPanel />} />
+        <Route path='/contract' element={<Pagos />} />
+
       </Routes>
     </>
   )
