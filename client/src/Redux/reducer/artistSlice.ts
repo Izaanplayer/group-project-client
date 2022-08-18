@@ -101,6 +101,7 @@ export const artistSlice = createSlice({
         },
         getByName: (state, action) => {
             state.artists = action.payload;
+            state.detail = [];
         },
         getDetail: (state, action: PayloadAction<ArtistDetailProps[]>) => {
             state.detail = action.payload;

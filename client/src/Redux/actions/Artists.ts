@@ -10,8 +10,12 @@ export const getAllArtists = (): AppThunk => async (dispatch) => {
 }
 
 export const getArtistByName = (name: string): AppThunk => async (dispatch) => {
-    const { data } = await axios.get(`http://localhost:4000/shows?name=${name}`);
-    dispatch(getByName(data));
+    try {
+        const { data } = await axios.get(`http://localhost:4000/artist?name=${name}`);
+        dispatch(getByName(data));
+    } catch (error: any) {
+        alert(error.response.data.message);
+    }
 }
 
 export const getArtistDetail = (id: string): AppThunk => async (dispatch) => {

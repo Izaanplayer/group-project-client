@@ -17,11 +17,16 @@ export default function AllArtists() {
     useEffect(() => {
         if (searchParams.get("name") !== null) {
             //Get Artists By Name
-            dispatch(getArtistByName(searchParams.get("name")?.toLowerCase()!));
-        } else {
-            dispatch(getAllArtists());
+            dispatch(getArtistByName(searchParams.get("name")!));
         }
+        return () => { };
     }, [dispatch, searchParams]);
+
+    useEffect(() => {
+        if (artistState && artistState.length === 0) {
+            dispatch(getAllArtists())
+        }
+    }, [artistState]);
 
 
     return (
