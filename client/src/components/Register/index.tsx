@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 
-export default function CreateFormRe() {
+export default function Login() {
     return (
         <div className="max-w-2xl mx-auto bg-white p-16">
             <Navbar />

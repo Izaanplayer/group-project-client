@@ -3,10 +3,10 @@ import Home from "../components/Home";
 import Artists from "../components/Artistas/allArtists";
 import ArtistDetail from "../components/ArtistDetail/ArtistDetail";
 import Categories from "../components/Categories";
-import Login from "../components/Login/Login";
-import AdminPanel from "../components/AdminPanel/AdminPanel";
-import Register from "../components/Form/CreateFormFin";
 import Contract from "../components/Contract";
+import Login from "../components/Login";
+import Register from "../components/Register/";
+import AdminPanel from "../components/AdminPanel/AdminPanel";
 
 export default function App() {
   return (
