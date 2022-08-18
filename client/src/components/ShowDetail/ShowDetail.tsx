@@ -3,18 +3,18 @@ import { useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../redux/store/store';
-import { getShowDetail } from '../../redux/actions/Shows';
-import { ShowArgs } from '../../redux/reducer/showSlice';
+//import { getShowDetail } from '../../redux/actions/Shows';
+//import { ShowArgs } from '../../redux/reducer/showSlice';
 
 import Navbar from '../Navbar';
 
 export default function ShowDetail() {
     const dispatch = useAppDispatch();
-    const showState = useAppSelector((state: RootState) => state.shows);
+    //const showState = useAppSelector((state: RootState) => state.shows);
     const { id } = useParams();
-    const [showDetail, setShowDetail] = useState<ShowArgs[]>([]);
+    //const [showDetail, setShowDetail] = useState<ShowArgs[]>([]);
 
-    useEffect(() => {
+    /* useEffect(() => {
         if (showState.detail.length > 0) {
             setShowDetail(showState.detail);
         }
@@ -22,10 +22,10 @@ export default function ShowDetail() {
 
     useEffect(() => {
         dispatch(getShowDetail(String(id)));
-    }, [dispatch, id]);
+    }, [dispatch, id]); */
 
     return (
-        <div className="flex justify-center text-center my-20 h-auto">
+        {/* <div className="flex justify-center text-center my-20 h-auto">
             <Navbar />
             {
                 (showDetail.length > 0) ? <ul className="bg-mikeBlack max-h-fit  w-3/4 mt-5 rounded-t-3xl rounded-b-2xl text-mikeWhite">
@@ -57,6 +57,6 @@ export default function ShowDetail() {
                     </div>
                 </ul> : ''
             }
-        </div>
+        </div> */}
     )
 }

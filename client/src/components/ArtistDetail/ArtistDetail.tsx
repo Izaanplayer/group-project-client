@@ -16,8 +16,6 @@ export default function ArtistDetail() {
         dispatch(getArtistDetail(String(id)));
     }, [dispatch]);
 
-    console.log(detailState);
-
     return (
         <div>
             <Navbar />

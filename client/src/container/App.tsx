@@ -6,10 +6,10 @@ import Categories from "../components/Categories";
 import Contract from "../components/Contract";
 import Login from "../components/Login";
 import Register from "../components/Register/";
-import AdminPanel from "../components/AdminPanel/AdminPanel";
-// import Contract from "../components/Contract";
 import Pagos from "../components/pruebaPago/Pagos";
 import FormShow from '../components/Register/FormShow';
+import AdminPanel from "../components/AdminPanel/AdminPanel";
+// import Contract from "../components/Contract";
 
 export default function App() {
 

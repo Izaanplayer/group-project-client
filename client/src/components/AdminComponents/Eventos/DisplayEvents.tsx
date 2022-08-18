@@ -1,4 +1,3 @@
-//@ts-nocheck
 import data from './inputs';
 import { Link } from 'react-router-dom';
 
@@ -36,7 +35,7 @@ export const DisplayEvents = () => {
                           <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{e.category}</td>
                           <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{e.price}</td>
                           <td className="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                          <Link to=':id'><td className="text-blue-600 dark:text-blue-500 hover:underline cursor-pointer">Edit</td></Link>
+                            <Link to=':id'><td className="text-blue-600 dark:text-blue-500 hover:underline cursor-pointer">Edit</td></Link>
                           </td>
                         </tr>)
                       })
