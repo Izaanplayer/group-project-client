@@ -7,8 +7,14 @@ import Contract from "../components/Contract";
 import Login from "../components/Login";
 import Register from "../components/Register/";
 import AdminPanel from "../components/AdminPanel/AdminPanel";
+// import Contract from "../components/Contract";
+import Pagos from "../components/pruebaPago/Pagos";
+import FormShow from '../components/Register/FormShow';
 
 export default function App() {
+
+
+
   return (
     <>
       <Routes>
@@ -16,10 +22,13 @@ export default function App() {
         <Route path='/artists' element={<Artists />} />
         <Route path='/artists/detail/:id' element={<ArtistDetail />} />
         <Route path='/categories' element={<Categories />} />
-        <Route path='/contract' element={<Contract />} />
+        {/* <Route path='/contract' element={<Contract />} /> */}
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/createartist' element={<FormShow />} />
         <Route path='/AdminPanel' element={<AdminPanel />} />
+        <Route path='/contract' element={<Pagos />} />
+
       </Routes>
     </>
   )

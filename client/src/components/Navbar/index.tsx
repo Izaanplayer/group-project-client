@@ -1,8 +1,18 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Filters from "../Filters";
 import Modal from "../Modal";
 
 export default function Navbar() {
+    const navigate = useNavigate()
+
+    const token = localStorage.getItem('auth-token')
+    console.log(token)
+
+    const logOut = ()=>{
+        localStorage.clear()
+        navigate('/login')
+
+    }
 
     const navLinkStyles = ({ isActive }: any) => {
         return {
@@ -47,12 +57,16 @@ export default function Navbar() {
                             </li>
 
                             <li className="mr-4">
+                                {token ?
+                                    <button type="button" onClick={logOut} className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Log Out</button>
+                                    :
                                 <NavLink to='/login' style={navLinkStyles} className="flex items-center text-gray-900 text-lg py-1.5 px-4 rounded-3xl transition-all duration-75 ease-linear delay-75 hover:bg-gray-400 hover:bg-opacity-20">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                     </svg>
                                     Ingresar
                                 </NavLink>
+                                }               
                             </li>
 
                             <li className="mr-8">
