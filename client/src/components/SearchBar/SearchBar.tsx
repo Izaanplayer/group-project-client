@@ -10,7 +10,7 @@ export default function SearchBar() {
     }
 
     const searchByName = () => {
-        navigate(`/shows?name=${name}`);
+        navigate(`/artists?name=${name}`);
     }
 
     return (

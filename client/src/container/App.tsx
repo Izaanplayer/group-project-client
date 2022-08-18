@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../components/Home";
-import AllShows from "../components/Shows/allShows";
-import ShowDetail from "../components/ShowDetail/ShowDetail";
+import Artists from "../components/Artistas/allArtists";
+import ArtistDetail from "../components/ArtistDetail/ArtistDetail";
 import Categories from "../components/Categories";
 import Login from "../components/Login/Login";
 import AdminPanel from "../components/AdminPanel/AdminPanel";
@@ -13,8 +13,8 @@ export default function App() {
     <>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/shows' element={<AllShows />} />
-        <Route path='/shows/detail/:id' element={<ShowDetail />} />
+        <Route path='/artists' element={<Artists />} />
+        <Route path='/artists/detail/:id' element={<ArtistDetail />} />
         <Route path='/categories' element={<Categories />} />
         <Route path='/contract' element={<Contract />} />
         <Route path='/login' element={<Login />} />

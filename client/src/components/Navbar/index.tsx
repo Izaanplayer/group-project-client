@@ -13,7 +13,7 @@ export default function Navbar() {
 
     return (
         <>
-            <div className="w-full py-1 px-5 bg-white flex items-center fixed top-0 right-0 left-0 shadow lg:flex-row lg:flex-nowrap lg:justify-start">
+            <div className="w-full py-1 px-5 bg-white flex items-center fixed top-0 right-0 left-0 shadow lg:flex-row lg:flex-nowrap lg:justify-start" style={{zIndex: '999'}}>
                 <div className="w-full py-3 mx-auto flex items-center justify-between lg:flex-nowrap xl:max-w-screen-xl">
                     <Link to="/">
                         <p className="text-2xl text-gray-900 font-extrabold inline-block py-1.5 mr-4 leading-none whitespace-nowrap tracking-widest">Artist App</p>
@@ -21,7 +21,7 @@ export default function Navbar() {
                     <div className="flex basis-auto flex-grow items-center">
                         <ul className="flex flex-row items-center ml-auto pl-0 list-none my-0">
                             <li className="mr-8">
-                                <NavLink to="/shows" style={navLinkStyles} className="flex items-center text-gray-900 text-lg py-1.5 px-4 rounded-3xl transition-all duration-75 ease-linear delay-75 hover:bg-gray-400 hover:bg-opacity-20">
+                                <NavLink to="/artists" style={navLinkStyles} className="flex items-center text-gray-900 text-lg py-1.5 px-4 rounded-3xl transition-all duration-75 ease-linear delay-75 hover:bg-gray-400 hover:bg-opacity-20">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>

@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import showSlice from '../reducer/showSlice';
+import artistSlice from '../reducer/artistSlice';
 
 export const store = configureStore({
   reducer: {
-    shows: showSlice
+    artists: artistSlice
   }
 });
 

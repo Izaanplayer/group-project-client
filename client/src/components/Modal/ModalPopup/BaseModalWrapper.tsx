@@ -14,7 +14,7 @@ const BaseModalWrapper: React.FC<BaseModalWrapperProps> = ({ onBackDropClick, is
     }
     return (
         <ContainerModal onBackDropClick={onBackDropClick}>
-            <div className="w-10/12 h-modal bg-white rounded z-50" onClick={e => e.stopPropagation()}>
+            <div className="w-10/12 h-modal bg-white mt-50 rounded" onClick={e => e.stopPropagation()}>
                 {headerModal}
                 {bodyModal}
             </div>
