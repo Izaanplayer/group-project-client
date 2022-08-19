@@ -8,7 +8,7 @@ import Login from "../components/Login";
 import Register from "../components/Register/";
 import Pagos from "../components/pruebaPago/Pagos";
 import FormShow from '../components/Register/FormShow';
-import AdminPanel from "../components/AdminPanel/AdminPanel";
+import AdminPanel from "../components/AdminPanel";
 // import Contract from "../components/Contract";
 
 export default function App() {
