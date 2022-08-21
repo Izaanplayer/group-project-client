@@ -1,5 +1,7 @@
 import axios from 'axios';
+import { isLogout } from '../reducer/loggedSlice';
 import { AppThunk } from "../store/store";
+import { getAll } from '../reducer/usersSlice'
 
 export const LogoutUser = (): AppThunk => async (dispatch) => {
     try {
@@ -10,15 +12,24 @@ export const LogoutUser = (): AppThunk => async (dispatch) => {
     }
 }
 
-export const ValidateToken = () => async () => {
+export const ValidateToken = (): AppThunk => async (dispatch) => {
     try {
         const { data } = await axios.get('http://localhost:4000/users/validateToken', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('auth-token')}`
             }
         });
-        return data;
+        if (data.authorized === false) {
+            dispatch(isLogout());
+        }
     } catch (error) {
-        console.log(error);
+
     }
+}
+
+export const getAllUsers = (): AppThunk => async (dispatch) => {
+    // dispatch(isLoading(true));
+    const { data } = await axios.get(`http://localhost:4000/users`);
+    dispatch(getAll(data));
+    // dispatch(isLoading(false));
 }
