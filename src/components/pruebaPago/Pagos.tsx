@@ -32,7 +32,11 @@ const CheckoutForm = () => {
             const { err, paymentMethod } = await stripe?.createPaymentMethod({
                 type: 'card',
                 card: elements?.getElement(CardElement)
-            })
+            });
+            if (err) {
+                console.log(err);
+                return;
+            }
             if (paymentMethod) {
                 const { id } = paymentMethod
                 const { data } = await axios.post('http://localhost:4000/buy', {
