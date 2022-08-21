@@ -1,5 +1,5 @@
 import auriculares from '../../media/auriculares.png';
-import wave8 from '../../media/wave8.svg';
+import wave from '../../media/wave.svg';
 import Navbar from '../Navbar';
 import { Link } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ export default function Home() {
                 </div>
 
                 <div className="absolute w-full h-full flex items-end -z-50">
-                    <img src={wave8} className="w-full" alt="" />
+                    <img src={wave} className="w-full" alt="" />
                 </div>
             </div>
         </>
