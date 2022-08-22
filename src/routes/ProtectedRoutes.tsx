@@ -1,12 +1,13 @@
 import { Navigate, Outlet } from "react-router-dom"
 import axios from "axios";
+import { RUTA_APP } from "..";
 
 const useAuth = () => {
     const token = localStorage.getItem('auth-token');
 
     (async () => {
         //Obtener los roles del usuario
-        const roleResponse = await axios.get('http://localhost:4000/users/role', {
+        const roleResponse = await axios.get(`${RUTA_APP}users/role`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
