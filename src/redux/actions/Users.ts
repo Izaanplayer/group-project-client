@@ -113,8 +113,15 @@ export const createUser = async (arr: FormRegisterProps) => {
 
 export const LogoutUser = (): AppThunk => async () => {
     try {
-        localStorage.removeItem('auth-token');
-        localStorage.removeItem('role');
+        const { data } = await axios.put(`${RUTA_APP}users/logout`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('auth-token')}`
+            }
+        });
+        if (data) {
+            localStorage.removeItem('auth-token');
+            localStorage.removeItem('role');
+        }
     } catch (error) {
         console.log(error);
     }
