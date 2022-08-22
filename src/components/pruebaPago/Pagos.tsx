@@ -33,6 +33,9 @@ const CheckoutForm = () => {
                 type: 'card',
                 card: elements?.getElement(CardElement)
             })
+            if (err) {
+                console.log(err);
+            }
             if (paymentMethod) {
                 const { id } = paymentMethod
                 const { data } = await axios.post(`${RUTA_APP}buy`, {

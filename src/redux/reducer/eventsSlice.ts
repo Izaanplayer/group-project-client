@@ -1,6 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../store/store';
-
 
 export interface Evento {
         artistaId: string;
@@ -27,8 +26,6 @@ export interface EventosCategoria {
     idEvento: string;
 }
 
-
-
 export interface EventState {
     events: Evento[],
     detail: Evento[],
@@ -41,7 +38,6 @@ const initialState: EventState = {
     /* Estos estados son para validar el status de las peticiones al backend */
     // request: 'idle'
 };
-
 
 export const eventSlice = createSlice({
     name: 'artist',
