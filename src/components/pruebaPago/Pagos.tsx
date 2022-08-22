@@ -7,7 +7,6 @@ import axios from 'axios';
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../Navbar';
-import { RUTA_APP } from '../..';
 
 const product = {
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzYgeiivNE-anUqExkuhJ4kjFxrUj1W7k47A&usqp=CAU',
@@ -33,11 +32,7 @@ const CheckoutForm = () => {
             const { err, paymentMethod } = await stripe?.createPaymentMethod({
                 type: 'card',
                 card: elements?.getElement(CardElement)
-            });
-            if (err) {
-                console.log(err);
-                return;
-            }
+            })
             if (paymentMethod) {
                 const { id } = paymentMethod
                 const { data } = await axios.post(`${RUTA_APP}buy`, {

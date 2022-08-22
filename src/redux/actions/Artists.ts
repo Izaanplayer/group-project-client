@@ -1,10 +1,21 @@
 import { AppThunk } from "../store/store";
 import { getAll, getByName, getDetail, isLoading } from "../reducer/artistSlice";
-import { RUTA_APP } from "../..";
 import axios from 'axios';
+import { RUTA_APP } from "../..";
+
+export interface ArtistCreateProps {
+    name: string;
+    img: string;
+    descripcion?: string | null;
+    [key: string]: any;
+}
+
+export const createArtist = async (arr: ArtistCreateProps) => {
+    const { data } = await axios.post(`${RUTA_APP}artist/create`, arr)
+    return data;
+}
 
 export const getAllArtists = (): AppThunk => async (dispatch) => {
-    console.log(RUTA_APP);
     dispatch(isLoading(true));
     const { data } = await axios.get(`${RUTA_APP}artist`);
     dispatch(getAll(data));

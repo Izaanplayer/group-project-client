@@ -34,7 +34,9 @@ export default function Login() {
             });
 
             var roles: string[] = [];
-            roleResponse.data.map((rol: { roles: { nombre: string; }; }) => roles.push(rol.roles.nombre));
+            roleResponse.data.map((rol: { roles: { nombre: string; }; }) => {
+                roles.push(rol.roles.nombre);
+            });
 
             localStorage.setItem('role', JSON.stringify(roles));
 
