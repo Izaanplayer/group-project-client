@@ -118,9 +118,24 @@ export const LogoutUser = (): AppThunk => async () => {
                 Authorization: `Bearer ${localStorage.getItem('auth-token')}`
             }
         });
-        if (data) {
+        if (data.logout) {
             localStorage.removeItem('auth-token');
             localStorage.removeItem('role');
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: "Nos vemos pronto...",
+                showConfirmButton: true,
+                timer: 5000
+            });
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: "No se ha cerrado sesión correctamente.",
+                showConfirmButton: true,
+                timer: 5000
+            });
         }
     } catch (error) {
         console.log(error);
