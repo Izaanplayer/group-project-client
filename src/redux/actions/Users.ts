@@ -1,13 +1,12 @@
 import axios from 'axios';
-import { isLogout } from '../reducer/loggedSlice';
+import Swal from 'sweetalert2';
+import { RUTA_APP } from '../..';
 import { AppThunk } from "../store/store";
 import { getAll } from '../reducer/usersSlice';
 import { FormRegisterProps } from '../../components/Register';
-import Swal from 'sweetalert2';
 import { createPerson, PersonCreateProps } from './Person';
 import { ArtistCreateProps, createArtist } from './Artists';
 import { asignarRol, getRoleByName } from './Roles';
-import { RUTA_APP } from '../..';
 
 interface UserPostProps {
     email: string;
@@ -111,28 +110,20 @@ export const createUser = async (arr: FormRegisterProps) => {
         });
 }
 
-export const LogoutUser = (): AppThunk => async () => {
+export const LogoutUser = async () => {
     try {
-        const { data } = await axios.put(`${RUTA_APP}users/logout`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('auth-token')}`
-            }
+
+        const { data } = await axios.put(`${RUTA_APP}users/logout`, {}, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('auth-token')}` }
         });
         if (data.logout) {
             localStorage.removeItem('auth-token');
             localStorage.removeItem('role');
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: "Nos vemos pronto...",
-                showConfirmButton: true,
-                timer: 5000
-            });
         } else {
             Swal.fire({
                 position: 'center',
-                icon: 'error',
-                title: "No se ha cerrado sesión correctamente.",
+                icon: 'success',
+                title: "No se ha cerrado la sesión correctamente.",
                 showConfirmButton: true,
                 timer: 5000
             });
@@ -142,24 +133,29 @@ export const LogoutUser = (): AppThunk => async () => {
     }
 }
 
-export const ValidateToken = (): AppThunk => async (dispatch) => {
+export const ValidateToken = async () => {
     try {
         const { data } = await axios.get(`${RUTA_APP}users/validateToken`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('auth-token')}`
             }
         });
-        if (data.authorized === false) {
-            dispatch(isLogout());
-        }
+        return data;
     } catch (error) {
 
     }
 }
 
 export const getAllUsers = (): AppThunk => async (dispatch) => {
-    // dispatch(isLoading(true));
     const { data } = await axios.get(`${RUTA_APP}users`);
     dispatch(getAll(data));
-    // dispatch(isLoading(false));
+}
+
+export const getRoleByToken = async () => {
+    const { data } = await axios.get(`${RUTA_APP}users/role`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('auth-token')}`
+        }
+    });
+    return data;
 }

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks"
 import { RootState } from "../../redux/store/store";
@@ -27,7 +27,7 @@ export default function AllArtists() {
         if (artistState && artistState.length === 0) {
             dispatch(getAllArtists())
         }
-    }, [dispatch, artistState]);
+    }, [artistState]);
 
 
     return (

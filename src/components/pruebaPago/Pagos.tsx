@@ -42,7 +42,6 @@ const CheckoutForm = () => {
                     id,
                     amount: product.price
                 })
-                // console.log(data);
                 if (data.success) {
                     Swal.fire({
                         position: 'center',
