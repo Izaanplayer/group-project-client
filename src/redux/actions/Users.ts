@@ -102,6 +102,11 @@ export const createUser = async (arr: FormRegisterProps) => {
         });
 }
 
+export const getAllUsers = (): AppThunk => async (dispatch) => {
+    const { data } = await axios.get(`${RUTA_APP}users`);
+    dispatch(getAll(data));
+}
+
 export const LogoutUser = async () => {
     try {
 
@@ -111,17 +116,17 @@ export const LogoutUser = async () => {
         if (data.logout) {
             localStorage.removeItem('auth-token');
             localStorage.removeItem('role');
-        } else {
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: "No se ha cerrado la sesión correctamente.",
-                showConfirmButton: true,
-                timer: 5000
-            });
         }
     } catch (error) {
-        console.log(error);
+        localStorage.removeItem('auth-token');
+        localStorage.removeItem('role');
+        Swal.fire({
+            position: 'center',
+            icon: 'info',
+            title: "No se ha cerrado la sesión correctamente.",
+            showConfirmButton: true,
+            timer: 5000
+        });
     }
 }
 
@@ -134,13 +139,29 @@ export const ValidateToken = async () => {
         });
         return data;
     } catch (error) {
-
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: "Error al validar el token.",
+            showConfirmButton: true,
+            timer: 5000
+        });
     }
 }
 
-export const getAllUsers = (): AppThunk => async (dispatch) => {
-    const { data } = await axios.get(`${RUTA_APP}users`);
-    dispatch(getAll(data));
+export const getUserByToken = async () => {
+    try {
+        const { data } = await axios.get(`${RUTA_APP}users?token=${localStorage.getItem('auth-token')}`);
+        return data;
+    } catch (error) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: "Error al validar el token.",
+            showConfirmButton: true,
+            timer: 5000
+        });
+    }
 }
 
 export const getRoleByToken = async () => {

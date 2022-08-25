@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 //import { RootState } from '../store/store';
 
-export interface UserProps {
+export interface Usuario {
     email: string;
     id: string;
     isAvaliable: boolean;
     persona: Persona;
-    rolesUsuarios: RolesUsuario[];
     token: string;
 }
 
@@ -18,21 +17,12 @@ export interface Persona {
     name: string;
 }
 
-export interface RolesUsuario {
-    roles: Roles;
-}
-
-export interface Roles {
-    id: string;
-    nombre: string;
-}
-
 export type UserState = {
-    data: UserProps[]
+    users: Usuario[]
 }
 
 const initialState: UserState = {
-    data: []
+    users: []
 };
 
 export const UsersSlice = createSlice({
@@ -41,10 +31,7 @@ export const UsersSlice = createSlice({
     // The `reducers` field lets us define reducers and generate associated actions
     reducers: {
         getAll: (state, action) => {
-            return {
-                ...state,
-                data: action.payload
-            }
+            state.users = action.payload;
         }
     }
 });

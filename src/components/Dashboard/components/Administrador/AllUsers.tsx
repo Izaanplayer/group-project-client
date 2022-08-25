@@ -2,15 +2,19 @@ import { useEffect } from 'react';
 import { getAllUsers } from '../../../../redux/actions/Users';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks/hooks';
 
-export default function TableUsers() {
+export default function AllUsers() {
     const dispatch = useAppDispatch();
-    const users = useAppSelector(state => state.users.data);
+    const users = useAppSelector(state => state.dashboard.users);
+    const head = ['Nombres', 'Correo electrónico', 'Rol', 'Ubicación', 'Estado', 'Opciones']
 
     useEffect(() => {
         dispatch(getAllUsers());
     }, [dispatch]);
 
-    const head = ['Names', 'email', 'Rol', 'Ubication', 'Available', 'Options']
+    const deshabilitar = (idUsuario: string, isActive: boolean) => {
+        let status = isActive ? false : true;
+        console.log(idUsuario, status);
+    }
 
     return (
         <>
@@ -32,15 +36,15 @@ export default function TableUsers() {
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                         {
-                            users.map((user, i) => {
+                            users.map((user: any, i: number) => {
                                 return (
                                     <tr key={i}>
                                         <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{user.persona.name} {user.persona.lastname}</td>
                                         <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{user.email}</td>
-                                        <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{user.rolesUsuarios.map(rol => `${rol.roles.nombre}, `)}</td>
+                                        <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{user.rolesUsuarios.map((rol: any) => `${rol.roles.nombre}, `)}</td>
                                         <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{user.persona.city} - {user.persona.country}</td>
-                                        <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{user.isAvaliable ? "true" : "false"}</td>
-                                        <td className="py-4 px-6 text-sm font-medium text-blue-600 whitespace-nowrap cursor-pointer">{user.isAvaliable ? "Deshabilitar" : "Habilitar"}</td>
+                                        <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{user.isAvaliable ? "Activo" : "Inactivo"}</td>
+                                        <td className="py-4 px-6 text-sm font-medium text-blue-600 whitespace-nowrap cursor-pointer"><button onClick={() => deshabilitar(user.id, user.isAvaliable)} className={`py-2 px-4 text-white rounded ${user.isAvaliable ? 'bg-red-500' : 'bg-green-500'}`}>{user.isAvaliable ? 'Deshabilitar' : 'Habilitar'} Evento</button></td>
                                     </tr>
                                 )
                             })
