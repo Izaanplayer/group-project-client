@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { getIdArtistByToken } from "../../../../redux/actions/Artists";
 import { createEvent } from "../../../../redux/actions/Events";
-import { useAppDispatch } from "../../../../redux/hooks/hooks";
 
 interface createEventProps {
     name: string;
@@ -17,8 +15,6 @@ interface createEventProps {
 }
 
 export default function CreateEvent() {
-    const dispatch = useAppDispatch();
-    const navigate = useNavigate();
     const [input, setInput] = useState<createEventProps>({
         name: '',
         description: '',
@@ -218,7 +214,7 @@ export default function CreateEvent() {
                         input.imagesEvent && input.imagesEvent.length > 0 ?
                             <div className="flex flex-col items-center my-10">
                                 <p>Preview Image</p>
-                                <img src={input.imagesEvent[0]} className="w-60 rounded-full object-cover" alt="Preview Image" />
+                                <img src={input.imagesEvent[0]} className="w-60 rounded-full object-cover" alt="" />
                                 <button type="button" onClick={() => setInput({ ...input, imagesEvent: [] })} className="py-2 px-4 my-5 bg-red-500 rounded text-white">Eliminar imagen</button>
                             </div> : ''
                     }

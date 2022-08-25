@@ -22,7 +22,7 @@ export default function EventosArtista({ changeView }: ChangeViewProps) {
             }).catch(error => {
                 console.log(error);
             });
-    }, []);
+    }, [dispatch]);
 
     const deshabilitar = (idEvento: string, isActive: boolean) => {
         let status = isActive ? false : true;

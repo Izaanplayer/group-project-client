@@ -18,7 +18,7 @@ export default function Login() {
         if (localStorage.getItem('auth-token')) {
             navigate('/dashboard');
         }
-    }, []);
+    }, [navigate]);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInput({
